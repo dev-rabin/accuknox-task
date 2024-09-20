@@ -101,9 +101,9 @@ const App = () => {
   );
 
   return (
-    <div>
+    <div className="container mx-auto">
       <div className="flex justify-between items-center p-2 bg-white">
-        <div className="ml-2 font-semibold">
+        <div className="ml-2 font-semibold text-sm sm:text-base">
           Home /<span className="font-bold"> Dashboard</span>
         </div>
         <input
@@ -111,32 +111,31 @@ const App = () => {
           placeholder="Search Widgets"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="bg-blue-100 m-2 px-5 py-2 rounded-xl"
+          className="bg-blue-100 m-2 px-5 py-2 rounded-xl text-xs sm:text-base w-full sm:w-64"
         />
-        <div className="w-28 flex justify-around items-center">
+        <div className="flex justify-around items-center w-28">
           <FontAwesomeIcon icon={faBell} />
           <FontAwesomeIcon icon={faUser} />
           <FontAwesomeIcon icon={faCalendar} />
         </div>
       </div>
 
-      <div className="m-5 flex justify-between">
+      <div className="m-5 flex flex-col md:flex-row justify-between">
         <div>
-          <p className="font-bold text-lg">CNAPP Dashboard</p>
+          <p className="font-bold text-base sm:text-lg">CNAPP Dashboard</p>
         </div>
 
-        <div className=" w-96 flex justify-around items-center ">
-          <button className="border border-blue-400 rounded-md py-1 px-2 text-sm bg-white">
-            {" "}
+        <div className="w-full md:w-96 flex flex-col sm:flex-row justify-around items-center gap-2">
+          <button className="border border-blue-400 rounded-md py-1 px-2 text-xs sm:text-sm bg-white">
             + Add Widget
           </button>
-          <button className="border border-blue-400 rounded-md py-1 px-2 text-sm bg-white">
+          <button className="border border-blue-400 rounded-md py-1 px-2 text-xs sm:text-sm bg-white">
             <FontAwesomeIcon icon={faRefresh} />
           </button>
-          <button className="border border-blue-400 rounded-md py-1 px-2 text-sm bg-white">
+          <button className="border border-blue-400 rounded-md py-1 px-2 text-xs sm:text-sm bg-white">
             <FontAwesomeIcon icon={faEllipsisV} />
           </button>
-          <button className="border border-blue-400 rounded-md py-1 px-3 text-sm bg-white font-bold text-blue-950">
+          <button className="border border-blue-400 rounded-md py-1 px-3 text-xs sm:text-sm bg-white font-bold text-blue-950">
             <FontAwesomeIcon className="mx-2" icon={faStopwatch} />
             Last 2 days{" "}
             <span>

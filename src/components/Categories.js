@@ -14,38 +14,36 @@ const Categories = memo(({
 
     const handleAddWidget = () => {
         if (newWidgetName.trim() === '' || newWidgetText.trim() === '') {
-            return (
-                alert("Please fill all details.")
-            )
+            return alert("Please fill all details.");
         }
         addWidget(category.id);
         toggleDrawer();
     };
-    
 
     return (
-        <div className="mx-20 my-5">
-            <h2 className='font-bold my-3'>{categoryName}</h2>
+        <div className="mx-4 md:mx-10 lg:mx-20 my-5">
+            <h2 className='font-bold text-lg sm:text-xl lg:text-2xl my-3'>{categoryName}</h2>
 
-            <div className="flex justify-between gap-6 scrollbar-hide shadow-2xl p-2 rounded-xl">
+            {/* Use grid layout with responsive column settings */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 scrollbar-hide shadow-2xl p-2 rounded-xl">
                 {filteredWidgets.map(widget => (
-                    <div key={widget.id} className='bg-white border rounded-xl cursor-pointer'>
-                        <div className="w-96 h-60 p-4">
+                    <div key={widget.id} className='bg-white border rounded-xl cursor-pointer w-full'>
+                        <div className="h-60 p-4">
                             <div className="flex justify-between items-center">
-                                <h4>{widget.name}</h4>
+                                <h4 className="text-sm sm:text-base">{widget.name}</h4>
                                 <button
-                                    className='border p-2 text-sm rounded-md text-white ease-in-out hover:bg-red-600 bg-red-500'
+                                    className='border p-2 text-xs sm:text-sm rounded-md text-white ease-in-out hover:bg-red-600 bg-red-500'
                                     onClick={() => removeWidget(category.id, widget.id)}
                                 >
                                     Remove
                                 </button>
                             </div>
-                            <p className="h-full w-full flex justify-center items-center">{widget.text}</p>
+                            <p className="h-full w-full flex justify-center items-center text-sm sm:text-base">{widget.text}</p>
                         </div>
                     </div>
                 ))}
                 <button
-                    className="w-96 text-black bg-white p-2 border rounded-xl"
+                    className="w-full text-black bg-white p-2 border rounded-xl"
                     onClick={toggleDrawer}
                 >
                     + Add Widget
@@ -53,7 +51,7 @@ const Categories = memo(({
             </div>
 
             <div
-                className={`fixed top-0 right-0 h-full bg-white border-l shadow-lg transition-transform duration-300 ease-in-out ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`fixed top-0 right-0 w-full sm:w-80 md:w-96 h-full bg-white border-l shadow-lg transition-transform duration-300 ease-in-out ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className='flex-col justify-between h-full'>
@@ -63,7 +61,7 @@ const Categories = memo(({
                         </div>
                         <p className='text-sm p-1'>Personalize your dashboard by adding the following widgets</p>
 
-                        <div className='flex gap-2 p-1 font-semibold'>
+                        <div className='flex gap-2 p-1 font-semibold text-xs sm:text-sm'>
                             <p>CSPM</p>
                             <p>CWPP</p>
                             <p>Image</p>
